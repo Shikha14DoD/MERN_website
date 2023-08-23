@@ -36,14 +36,9 @@ app.get('/',(req,res)=>{
 app.post('/contact',async(req,res)=>{
 
     try{
-        console.log("req.body=",req.body);
-       
-
         const userData= await new User(req.body);
         const savedUserData=await userData.save();
         res.status(201).render('index');
-        console.log("user-data is=",userData);
-        
         // res.send("Saved data successfully");
     }
     catch(error){
